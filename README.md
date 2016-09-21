@@ -1,25 +1,25 @@
-# Conexao Tocantins - Admin
+# Mean Seed
 
-## Dependências
+## Dependencies
 
-- É necessário instalar o docker e o docker-compose para rodar o projeto.
-- Instalar o node 4.x (LTS) (https://nodejs.org/en/download/package-manager/)
-- Instalar modulos globais:
+- It's necessáry to install docker and docker-compose to run the project.
+- Install NodeJS 4.x (LTS) (https://nodejs.org/en/download/package-manager/)
+- Install some global modules:
 
 ```
-sudo npm install -g gulp bower jshint nodemon
+sudo npm install -g gulp bower jshint
 ```
 
-## Rodando o projeto
+## Running the project
 
-Na primeira vez é necessário instalar as libs do bower e do npm:
+After cloning the repository, install the dependencies:
 
 ```
 npm install
 bower install
 ```
 
-Depois é só subir os containers:
+Then run the container with the command
 
 ```
 docker-compose up
@@ -28,11 +28,11 @@ docker-compose up
 ## Login
 
 ```
-email: admin@conexaoto.com.br
+email: admin@admin.com
 password: 123456
 ```
 
-## Plugins para o Atom
+## Recomended Atom plugins
 
 - atom-beautify
 - language-pug
