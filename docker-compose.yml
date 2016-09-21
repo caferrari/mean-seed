@@ -1,0 +1,24 @@
+version: '2'
+services:
+
+  web:
+    build: .
+    environment:
+      - SECRET=xptowxyz
+      - SESSION_TIMEOUT=600
+      - MONGO_DSN=mongodb://mongo/database
+      - ADMIN_USER=admin@admin.com
+      - ADMIN_PASSWORD=123456
+      
+    volumes:
+      - .:/src
+    ports:
+      - "3000:3000"
+      - "35729:35729"
+    links:
+      - mongo
+
+  mongo:
+    image: mongo
+    volumes:
+      - ./data:/data/db

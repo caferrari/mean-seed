@@ -1,0 +1,33 @@
+md-card
+  md-toolbar.md-hue-2(flex="noshrink")
+    div.md-toolbar-tools
+      md-button.md-icon-button
+        md-icon(md-svg-icon="account")
+      h2 Users
+      span.flex
+      md-button(user-create, on-done="$ctrl.loadData")
+        md-icon add_circle_outline
+        | add user
+
+md-card
+  md-table-container
+    table(md-table, md-progress="$ctrl.promise")
+      thead(md-head, md-order="$ctrl.query.sort", md-on-reorder="$ctrl.loadData")
+        tr(md-row)
+          th(md-column, md-order-by="name") Name
+          th(md-column, md-order-by="role") Role
+          th(md-column, md-order-by="email", width="200") E-mail
+          th(md-column, width="30") Actions
+      tbody(md-body)
+        tr(md-row, ng-repeat="user in $ctrl.data.docs")
+          td(md-cell) {{ user.name }}
+          td(md-cell) {{ user.role }}
+          td(md-cell) {{ user.email }}
+          td.md-icon-cell(md-cell)
+            md-button.md-icon-button(user-create="user", on-done="$ctrl.loadData")
+              md-tooltip Edit user
+              md-icon(md-svg-icon="pencil-box-outline", size="24")
+            md-button.md-icon-button(ng-disabled="user.id == currentUser.id" confirm="Are you sure?", ng-click="$ctrl.remove($event, user)")
+              md-tooltip Remove user
+              md-icon(md-svg-icon="delete", size="24")
+  md-table-pagination(md-limit="$ctrl.query.limit", md-label="{page: 'Page:', rowsPerPage: 'items per página:', of: 'de'}", md-limit-options="[25, 50, 100]", md-page="$ctrl.query.page", md-total="{{ $ctrl.data.total }}", md-on-paginate="$ctrl.loadData", md-page-select)

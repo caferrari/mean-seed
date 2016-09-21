@@ -1,0 +1,48 @@
+doctype
+html(lang="pt-br", ng-app="App")
+  head
+    meta(name="viewport", content="initial-scale=1")
+    meta(charset="UTF-8")
+    title Mean Seed
+
+    style.
+      [ng-cloak], .ng-cloak { display: none; }
+
+    link(rel="stylesheet", href="/css/libs.css")
+    link(rel="stylesheet", href="/css/styles.css")
+
+  body(layout="column", ng-controller="AppCtrl as $appCtrl", ng-cloak)
+    loading
+
+    div(layout="row", flex)
+      md-sidenav.md-sidenav-left.md-whiteframe-4dp(ng-click="$appCtrl.toggleSidenav('left')", ng-if="$appCtrl.isAuthenticated", layout="column", md-component-id="left", md-is-locked-open="$appCtrl.hideSidebar()")
+        div.logo
+          h1 Seed
+
+        md-button.md-primary(ng-href="#/dashboard")
+          md-icon(md-svg-icon="view-dashboard", size="24")
+          | Home
+
+        md-button.md-primary(ng-href="#/user")
+          md-icon(md-svg-icon="account", size="24")
+          | Users
+
+      div(layout="column", flex)
+        md-toolbar(layout="row")
+          .md-toolbar-tools
+            md-button.md-icon-button(ng-click="$appCtrl.toggleSidenav('left')", ng-if="!$appCtrl.hideSidebar()")
+              md-icon(aria-label="Menu", md-svg-icon="menu")
+            h1(ng-show="!$appCtrl.hideSidebar()") Admin
+            span(flex)
+            p.md-caption(ng-if="$appCtrl.user")
+              | {{ $appCtrl.user.name }}
+
+            md-button.md-icon-button(ng-if="$appCtrl.isAuthenticated", logout)
+              md-icon(aria-label="Logout", md-svg-icon="logout")
+
+        div(layout="row", flex)
+          md-content.main(flex, layout="column")
+            ng-view#main(layout="column", flex)
+
+    script(src="/js/libs.min.js")
+    script(src="/js/all.min.js")

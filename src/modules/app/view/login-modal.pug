@@ -1,0 +1,32 @@
+md-dialog(flex-xs="90", flex="50", flex-lg="30", flex-gt-lg="20")
+  md-dialog-content
+    form(md-form-validator, ng-submit="login()", novalidate)
+      md-content.md-inline-form(layout="column")
+
+        md-toolbar
+          .md-toolbar-tools
+            h2 {{ state == "recover" ? "Recover Password" : "Login" }}
+
+        md-content(layout-padding)
+
+          div(layout="column")
+            p(ng-if="error") {{error}}
+            md-input-container
+              label Email
+              input(type="email", ng-model="user.email", name="email", required, md-autofocus)
+              md-messages
+                md-message(required) E-mail required
+                md-message(email) Invalid E-mail
+
+            md-input-container(ng-if="state == 'login'")
+              label Password
+              input(ng-model="user.password", name="password", type="password", required)
+              md-messages
+                md-message(required) Password required
+
+        md-dialog-actions(layout="row")
+
+          md-button.md-raised(type="button", ng-if="state == 'login'", ng-click="setState('recover')") Recover
+          md-button.md-raised(type="button", ng-if="state == 'recover'", ng-click="setState('login')") Cancel
+          span(flex)
+          md-button.md-raised.md-accent(type="submit") {{ state == "recover" ? "Send" : "Login" }}

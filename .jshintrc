@@ -1,0 +1,26 @@
+{
+  "esversion": 6,
+  "quotmark": "double",
+  "undef": true,
+  "unused": true,
+  "bitwise": false,
+  "eqeqeq": true,
+  "newcap": true,
+  "maxdepth": 2,
+  "globals": {
+    "angular": true,
+    "_": true,
+    "window": true,
+    "require": true,
+    "module": true,
+    "console": true,
+    "FileReader": true,
+    "Image": true,
+    "Buffer": true,
+    "process": true,
+    "Promise": true,
+    "__dirname": true,
+    "document": true,
+    "global": true
+  }
+}

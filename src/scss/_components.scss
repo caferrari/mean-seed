@@ -1,0 +1,149 @@
+md-content {
+  color: inherit;
+}
+
+md-toolbar.md-table-toolbar.md-default-theme:not(.md-menu-toolbar).md-default .md-button, md-toolbar.md-table-toolbar:not(.md-menu-toolbar).md-default .md-button {
+  color: rgba(0,0,0,.54);
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
+}
+
+.text-image {
+  text-transform: uppercase;
+  font-size: 14px;
+  color: rgba(0,0,0,.54);
+  display: inline;
+}
+
+md-icon,
+ng-md-icon {
+  fill: currentColor;
+
+  &[size="32"] {
+    width: 32px;
+    height: 32px;
+  }
+
+  svg {
+    vertical-align: middle;
+    fill: inherit;
+  }
+}
+
+.img-banner {
+  min-width: 57vw;
+}
+
+.md-fab {
+  fill: $white;
+
+  ng-md-icon svg {
+    vertical-align: sub;
+  }
+}
+
+md-fab-speed-dial.md-fab-bottom-right {
+  position: fixed;
+}
+
+md-input-container {
+  margin-bottom: 0;
+  // padding: 2px 15px;
+  margin: 15px 0;
+  // label {
+  //   padding-left: 15px !important;
+  // }
+  // &.md-input-focused label:not(.md-no-float),
+  // &.md-input-has-placeholder label:not(.md-no-float),
+  // &.md-input-has-value label:not(.md-no-float) {
+  //   transform: translate3d(5px,6px,0) scale(.75);
+  // }
+  .md-errors-spacer {
+    min-height: 0;
+  }
+}
+
+md-datepicker {
+  margin-top: 11px !important;
+  margin-bottom: 7px;
+  margin-right: 10px !important;
+  padding-right: 0 !important;
+  padding-left: 10px !important;
+  display: block;
+
+  .md-datepicker-input-container {
+    margin-left: 0;
+    width: calc(100% - 40px);
+  }
+
+  .md-datepicker-button {
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+md-datepicker,
+md-input-container {
+  + [ng-messages],
+  [ng-messages] {
+    min-height: 19px;
+
+    &.ng-hide {
+      display: block !important;
+      visibility: hidden;
+    }
+  }
+}
+
+md-dialog {
+  max-height: calc(100vh - 50px) !important;
+
+  md-dialog-actions {
+    border-top: 1px solid $border-color;
+    padding: 10px 20px;
+  }
+}
+
+.ng-submitted,
+md-datepicker {
+  &.ng-invalid:not(.ng-untouched),
+  md-datepicker.ng-invalid {
+    .md-datepicker-input-container {
+      border-color: $danger;
+      border-width: 2px;
+    }
+    // md-icon {
+    //   fill: rgba($danger, 0.8);
+    // }
+    & + [ng-messages] {
+      padding-left: 50px;
+      color: $danger;
+      font-size: 12px;
+      margin-top: -7px;
+    }
+  }
+}
+
+table.md-table td.md-cell {
+  vertical-align: top;
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+}
+
+#loading {
+  position: absolute;
+  z-index: 10000;
+  width: 100%;
+  height: 100%;
+  cursor: wait;
+  background: rgba(0, 0, 0, 0.7);
+
+  md-progress-circular {
+    margin: auto;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+}

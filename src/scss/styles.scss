@@ -1,0 +1,78 @@
+@import "variables";
+@import "mixin";
+@import "components";
+@import "utilities";
+@import "fonts";
+@import "nav";
+@import "table";
+
+body {
+  background: $background-color;
+  color: $color;
+  fill: $color;
+}
+
+[ng-click] {
+  cursor: pointer;
+}
+
+md-content.main {
+  background: #efefef;
+}
+
+.logo {
+  h1 {
+    color: #000;
+    text-align: center;
+    text-shadow: 0px 0px 4px rgba(255,255,255, .7);
+  }
+}
+
+md-toolbar {
+  &:before {
+    top: 0;
+    box-shadow: 0 0 4px rgba(0,0,0,.14),0 -1px 8px rgba(0,0,0,.28);
+    content: "";
+    height: 100%;
+    left: 0;
+    right: 0;
+    position: absolute;
+    will-change: top,left;
+  }
+
+  img {
+    max-height: 80%;
+    margin: auto;
+  }
+}
+
+.error-message {
+  color: $danger;
+  margin-bottom: 20px;
+}
+
+.main-content {
+  background: none;
+}
+
+ng-view {
+  md-card {
+    &:first-child {
+      margin-bottom: -10px;
+    }
+
+    &:nth-child(2) {
+
+      .md-table-toolbar {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+  }
+}
+
+#main {
+  @include media-min-breakpoints(sm) {
+    padding: 8px;
+  }
+}

@@ -1,0 +1,46 @@
+md-dialog(flex-xs="90", flex="90", flex-lg="70", flex-gt-lg="60")
+  md-dialog-content
+    form(md-form-validator, ng-submit="$ctrl.save()", novalidate)
+      md-content.md-inline-form(layout="column")
+
+        md-toolbar
+          .md-toolbar-tools
+            h2 {{ $ctrl.user.id ? "Editar" : "Novo" }} Usuário
+
+        md-content(layout-padding)
+
+          div(layout="column")
+            p(ng-if="error") {{error}}
+
+          div(layout="column", layout-gt-sm="row")
+            md-input-container(flex)
+              label Name
+              input(ng-model="$ctrl.user.name", name="nome", md-maxlength="100", required)
+              md-messages
+                md-message(required) Name is required
+
+            md-input-container(flex)
+              label E-Mail
+              input(type="email", ng-model="$ctrl.user.email", name="email", md-maxlength="100", required)
+              md-messages
+                md-message(required) E-Mail required
+                md-message(email) Invalid email
+
+          div(layout="column")
+            md-input-container(flex)
+              label Role
+              md-select(name="agency", ng-model="$ctrl.user.role", required)
+                md-option(ng-repeat="role in $ctrl.roles", ng-value="role.id") {{ role.name }}
+              md-messages(field="role")
+                md-message(required) Select the role
+            md-input-container(flex)
+              label Password {{ $ctrl.user.id }}
+              input(type="password", ng-model="$ctrl.user.password", name="password", ng-required="!$ctrl.user.id", ng-minlength="6")
+              md-messages
+                md-message(required) Password required
+                md-message(minlength) Password too short
+
+        md-dialog-actions(layout="row")
+          md-button.md-raised(type="button", ng-click="$ctrl.cancel()") Cancelar
+          span(flex)
+          md-button.md-raised.md-accent(type="submit") Salvar

@@ -1,0 +1,15 @@
+md-sidenav {
+  transition: all 0.2s ease-in;
+  min-width: 150px;
+  max-width: 150px;
+
+  .md-button {
+    display: block;
+    text-align: left;
+    text-transform: none;
+
+    md-icon {
+      margin-right: 5px;
+    }
+  }
+}
