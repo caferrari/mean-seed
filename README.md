@@ -2,7 +2,7 @@
 
 ## Dependencies
 
-- It's necessáry to install docker and docker-compose to run the project.
+- It's necessary to install docker and docker-compose to run the project.
 - Install NodeJS 4.x (LTS) (https://nodejs.org/en/download/package-manager/)
 - Install some global modules:
 
