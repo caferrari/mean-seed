@@ -32,7 +32,7 @@ email: admin@admin.com
 password: 123456
 ```
 
-## Recomended Atom plugins
+## Recommended Atom plugins
 
 - atom-beautify
 - language-pug
