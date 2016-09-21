@@ -39,9 +39,12 @@ module.exports = (() => {
     });
   };
 
+  const remove = (_id) => findOne({_id}).then((user) => user.remove());
+
   return {
     create,
     save,
+    remove,
     list,
     findOne,
     findByEmail
