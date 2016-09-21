@@ -12,17 +12,17 @@ module.exports = (() => {
     console.log("MongoDB connected!");
 
     // seed the admin user
-    userService.findByEmail("admin@admin.com").then(result => {
+    userService.findByEmail(config.ADMIN_USER).then(result => {
       if (result) {
         return;
       }
 
-      console.log("admin@admin.com");
+      console.log("Creating the admin user");
 
       const user = new UserModel({
         name: "Administrator",
-        email: "admin@admin.com",
-        password: "123456",
+        email: config.ADMIN_USER,
+        password: config.ADMIN_PASSWORD,
         role: "admin",
       });
 
